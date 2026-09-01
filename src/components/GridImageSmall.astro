@@ -1,0 +1,108 @@
+---
+interface Props {
+	images: Record<string, any>;
+}
+
+const { images } = Astro.props;
+---
+
+<div class="thumbnail">
+	{
+		Object.entries(images).map(([path, image]) => (
+			<img
+				src={image as string}
+				alt="画像"
+				data-full={image as string}
+			/>
+		))
+	}
+</div>
+
+<div class="modal" id="image-modal">
+	<button class="close" aria-label="閉じる">×</button>
+	<img id="modal-image" src="" alt="拡大画像" />
+</div>
+
+<style>
+	.thumbnail {
+		display: grid;
+		grid-template-columns: repeat(5, 100px);
+		gap: 16px;
+	}
+
+	.thumbnail img {
+		width: 100px;
+		height: auto;
+		cursor: pointer;
+	}
+
+	.modal {
+		display: none;
+		position: fixed;
+		z-index: 1000;
+		inset: 0;
+
+		background-color: rgba(0, 0, 0, 0.8);
+
+		align-items: center;
+		justify-content: center;
+	}
+
+	.modal.active {
+		display: flex;
+	}
+
+	.modal img {
+		max-width: 90vw;
+		max-height: 90vh;
+		object-fit: contain;
+	}
+
+	.close {
+		position: absolute;
+		top: 20px;
+		right: 30px;
+
+		font-size: 40px;
+		color: white;
+		background: none;
+		border: none;
+		cursor: pointer;
+	}
+</style>
+
+<script>
+	const modal = document.querySelector("#image-modal");
+	const modalImage = document.querySelector("#modal-image");
+	const closeButton = document.querySelector(".close");
+
+	const thumbnails = document.querySelectorAll(".thumbnail img");
+
+	thumbnails.forEach((image) => {
+		image.addEventListener("click", () => {
+			const fullImage = image.getAttribute("data-full");
+
+			if (modalImage && fullImage) {
+				modalImage.setAttribute("src", fullImage);
+			}
+
+			modal?.classList.add("active");
+		});
+	});
+
+	closeButton?.addEventListener("click", () => {
+		modal?.classList.remove("active");
+	});
+
+	modal?.addEventListener("click", (event) => {
+		if (event.target === modal) {
+			modal.classList.remove("active");
+		}
+	});
+
+	document.addEventListener("keydown", (event) => {
+		if (event.key === "Escape") {
+			modal?.classList.remove("active");
+		}
+	});
+</script>

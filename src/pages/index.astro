@@ -1,17 +1,56 @@
 ---
-
+import Layout from "../layouts/Layout.astro";
+import profileImage from "../assets/images/home/Profile.png";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="ホーム">
+	<h1>プロフィール</h1>
+	<img src={profileImage.src} alt ="プロフィール" />
+	<p class="base">名前：れあ</p>
+	<p class="base">誕生日：1月30日</p>
+	<p class="base">お仕事：組み込み系のエンジニアやってます</p>
+	<p class="base">趣味：ゲーム・漫画・アニメ等々、人が作った物語を摂取するのが好きです</p>
+		<p class="description">最近やったゲーム</p>
+				<p class="description2">VRChat</p>
+					<p class="description3">[PROJECT:SUMMER FLARE]というワールドを探索するイベントを毎月開催しています。</p>
+				<p class="description2">スプラトゥーン レイダース</p>
+				<p class="description2">スレスパ2</p>
+				<p class="description2">セフィリア</p>
+	<h2>リンク</h2>
+	<a href="https://x.com/MandloiRea">
+		X(旧Twitter)<br>
+	</a>
+	<a href="https://buicha.social/@MandloiRea">
+		misskey<br>
+	</a>
+	<a href="https://mandloirea.booth.pm/">
+		Booth<br>
+	</a>
+	<a href="https://ci-en.net/creator/32238">
+		ci-en(ゲームの制作報告用)<br>
+	</a>
+	<a href="https://vrchat.com/home/user/usr_fcb6d83d-02b7-459f-acc6-02e22d6e20b8">
+		VRChat<br>
+	</a>
+</Layout>
+<style>
+	.base {
+		line-height: 1.5;
+	}
+	.description {
+		text-indent: 1em;
+		line-height: 1;
+	}
+	.description2 {
+		text-indent: 2em;
+		line-height: 1;
+	}
+	.description3 {
+		text-indent: 3em;
+		line-height: 1;
+	}
+	.description4 {
+		text-indent: 4em;
+		line-height: 1;
+	}
+</style>

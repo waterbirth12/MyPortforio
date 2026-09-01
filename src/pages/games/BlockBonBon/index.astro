@@ -1,0 +1,71 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import GridImage from "../../../components/GridImage.astro";
+import blockBonBonTitleImage from "../../../assets/images/games/BlockBonBon/Thumnail.png";
+
+const images = import.meta.glob(
+	"../../../assets/images/games/BlockBonBon/Screenshot/*.{png,jpg,jpeg,webp,gif}",
+	{
+		eager: true,
+		query: "?url",
+		import: "default",
+	}
+);
+---
+
+<Layout title="ゲーム">
+	<h1>制作ゲーム</h1>
+	<a href="/games/BlockBonBon/">
+		<div class="thumbnail">
+			<img src={blockBonBonTitleImage.src} alt ="BlockBonBon" />
+		</div>
+	</a>
+	<h1>BlockBonBon</h1>
+		<h2>概要</h2>
+			<p class="description">ステージ干渉型の2Dアクションゲームです。</p>
+			<p class="description">各ステージに対してブロックを追加してクリアを目指します。</p>
+			<p class="description">ブロックの追加にはコストがかかるので、少ないコストを目指して良い評価を目指しましょう。</p>
+			<p class="description">対応環境：Windowsのみ</p>
+			<p class="description">キーボード・ゲームパッド両方対応</p>
+	
+		<h2>スクリーンショット</h2>
+			<GridImage images={images} />
+		
+		<h2>ダウンロード先</h2>
+			<a href="https://mandloirea.itch.io/blockbonbon">
+				<p class="description">itch.io</p>
+			</a>
+			<a href="https://mandloirea.booth.pm/items/8706296">
+				<p class="description">Booth</p>
+			</a>
+		<h2>開発報告ログ</h2>
+			<a href="https://ci-en.net/creator/32238">
+				<p class="description">ci-en</p>
+			</a>
+		<h2>制作について</h2>
+			<p class="description">本ゲームはデバッグ・アドバイス等を除いて全て私が実装しました。</p>
+			<p class="description">BGM・SEはフリー素材を使用させていただきましたが、それ以外のリソースも私が作成しました。</p>
+			<p class="description">2025年2月頃から実装し、2026年8月にリリースしました。</p>
+			<p class="description">開発初期はUltimate Chicken Horseを参考にしていましたが、最終的には異なるものとなりました。</p>
+			<p class="description">(マルチプレイで面白いゲームをベースにしてたので、前提となるコンセプトが合っていませんでした。)</p>
+</Layout>
+<style>
+	.description {
+		text-indent: 1em;
+		line-height: 1;
+	}
+	.description2 {
+		text-indent: 2em;
+		line-height: 1;
+	}
+	.thumbnail {
+		display: grid;
+		grid-template-columns: repeat(3, 300px);
+		gap: 16px;
+	}
+	.thumbnail img {
+		width: 300px;
+		height: auto;
+		object-fit: pointer;
+	}
+</style>

@@ -1,0 +1,36 @@
+<header class="site-header">
+  <nav>
+    <a href="/">ホーム</a>
+    <a href="/games/">ゲーム</a>
+    <a href="/illustrations/">イラスト</a>
+    <a href="/other/">その他</a>
+  </nav>
+</header>
+
+<style>
+  .site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.9);
+    border-bottom: 1px solid #ccc;
+  }
+
+  nav {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 15px;
+  }
+
+  nav a {
+    color: #333;
+    text-decoration: none;
+  }
+
+  nav a:hover {
+    text-decoration: underline;
+  }
+</style>

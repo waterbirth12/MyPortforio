@@ -1,0 +1,19 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import blockBonBonTitleImage from "../../assets/images/games/BlockBonBon/Thumnail.png";
+---
+
+<Layout title="ゲーム">
+	<h1>制作ゲーム</h1>
+	<a href="/games/BlockBonBon/">
+		<div class="thumbnail">
+			<img src={blockBonBonTitleImage.src} alt ="BlockBonBon" />
+		</div>
+	</a>
+</Layout>
+<style>
+	.thumbnail img {
+		width: 300px;
+		height: auto;
+	}
+</style>

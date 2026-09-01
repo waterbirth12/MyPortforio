@@ -1,0 +1,39 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import GridImage from "../../../components/GridImageSmall.astro";
+
+const images = import.meta.glob(
+	"../../../assets/images/illustrations/OneDraw/2024/*.{png,jpg,jpeg,webp,gif}",
+	{
+		eager: true,
+		query: "?url",
+		import: "default",
+	}
+);
+---
+
+<Layout title="イラスト">
+	<h1>描いたイラストまとめ</h1>
+
+	<a href="/illustrations/OneDraw2023/">
+		<p class="description">ワンドロ(2023)</p>
+	</a>
+	<a href="/illustrations/OneDraw2024/">
+		<p class="description">ワンドロ(2024)</p>
+	</a>
+	<a href="/illustrations/OneDraw2025/">
+		<p class="description">ワンドロ(2025)</p>
+	</a>
+	<a href="/illustrations/Other/">
+		<p class="description">その他イラスト</p>
+	</a>
+	
+	<h2>ワンドロ(2024年)</h2>
+		<GridImage images={images} />
+</Layout>
+<style>
+	.description {
+		text-indent: 1em;
+		line-height: 1;
+	}
+</style>
