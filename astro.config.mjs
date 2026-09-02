@@ -4,4 +4,4 @@ import { defineConfig } from 'astro/config';
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://waterbirth12.gitjib.io',
-	base: '/MyPortforio',});
+	base: '/MyPortforio/',});
